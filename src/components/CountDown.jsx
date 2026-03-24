@@ -83,9 +83,7 @@ function CountDown() {
         </p>
         <p>Progress: {progress.toFixed(1)}%</p>
       </div>
-      <div className="bg-black mb-50 h-screen">
-        <p>ddd</p>
-      </div>
+      <div className="bg-[url('https://images.unsplash.com/photo-1543252358-f20f9c57bafe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTEwfHxibGFjayUyMGJhY2tncm91bmQlMjBncmlkJTIwYW5kJTIwbW9kZXJufGVufDB8fDB8fHww')] w-full h-250 bg-cover bg-center bg-no-repeat"></div>
     </div>
   );
 }
