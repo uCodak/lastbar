@@ -2,7 +2,7 @@
 body {
   background-color: #333333;
 }
-.roboto {
-  font-family: "Roboto", sans-serif;
+.jetbrain {
+  font-family: "JetBrains Mono", monospace;
   font-optical-sizing: auto;
 }

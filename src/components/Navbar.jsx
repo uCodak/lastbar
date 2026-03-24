@@ -24,10 +24,11 @@ function Navbar() {
   }, []);
 
   const navItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Contact", path: "/contact" },
+    { name: "MISSION", path: "/" },
+    { name: "WOLFPACK", path: "/about" },
+    { name: "THE PROTOCOL", path: "/services" },
+    { name: "INTEL", path: "/contact" },
+    { name: "RESOURCES", path: "/resources" },
   ];
 
   return (
@@ -41,18 +42,20 @@ function Navbar() {
       >
         <div className="flex items-center justify-between w-[90%] mx-auto">
           <div className="">
-            <img src={lastbarlogo} alt="" width={210} className="" />
+            <img
+              src={lastbarlogo}
+              alt=""
+              width={210}
+              className="brightness-0 invert"
+            />
           </div>
-          <div className="roboto">
+          <div className="jetbrain flex gap-3 text-[#71717B] ">
             {navItems.map((item, index) => (
               <NavLink
                 key={index}
                 to={item.path}
-                className={({ isActive }) =>
-                  `text-sm font-medium transition ${
-                    isActive ? "text-orange-500" : "text-gray-300"
-                  }`
-                }
+                className="
+                  text-sm font-medium transition hover:text-white "
               >
                 {item.name}
               </NavLink>
