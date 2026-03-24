@@ -1,5 +1,6 @@
 import lastbarlogo from "../assets/lastbarlogo.png";
 import { NavLink } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 function Navbar() {
   const navItems = [
@@ -27,7 +28,7 @@ function Navbar() {
               className="brightness-0 invert"
             />
           </div>
-          <div className="jetbrain flex gap-3 text-[#71717B] ">
+          <div className="jetbrain  gap-3 text-[#71717B] hidden md:flex">
             {navItems.map((item, index) => (
               <NavLink
                 key={index}
@@ -38,6 +39,9 @@ function Navbar() {
                 {item.name}
               </NavLink>
             ))}
+          </div>
+          <div className="flex md:hidden">
+            <Menu />
           </div>
         </div>
       </nav>

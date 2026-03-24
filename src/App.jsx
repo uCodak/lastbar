@@ -1,13 +1,11 @@
 import CountDown from "./components/CountDown";
 import Navbar from "./components/Navbar";
+import Homepage from "./Homepage";
 
 function App() {
   return (
     <>
-      <Navbar />
-      <div className="mt-15">
-        <CountDown />
-      </div>
+      <Homepage />
     </>
   );
 }
