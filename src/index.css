@@ -1,6 +1,8 @@
 @import "tailwindcss";
 body {
   background-color: #333333;
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
 }
 .jetbrain {
   font-family: "JetBrains Mono", monospace;
