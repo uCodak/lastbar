@@ -41,6 +41,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
+      <p className="border "></p>
     </>
   );
 }
