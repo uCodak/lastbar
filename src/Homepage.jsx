@@ -1,7 +1,12 @@
 import Navbar from "./components/Navbar";
 import CountDown from "./components/CountDown";
-import { SquareArrowOutUpRight, Database, Quote } from "lucide-react";
-import Test from "./components/Test";
+import {
+  SquareArrowOutUpRight,
+  Database,
+  Quote,
+  ArrowRight,
+} from "lucide-react";
+import { FaXTwitter, FaDiscord } from "react-icons/fa6";
 
 function Homepage() {
   const cards = [
@@ -333,10 +338,58 @@ function Homepage() {
             </p>
           </div>
           {/**buttons */}
-          <div>
-            <button></button>
-            <button></button>
+          <div className="flex  flex-col md:flex-row justify-center gap-3 md:gap-7 mb-5 md:mb-10">
+            <button className="text-white">
+              <span className="flex gap-3 bg-[#9F1239] px-6 py-3">
+                <span className="font-medium">START NEW DIAGNOSTICS</span>
+                <span>
+                  <ArrowRight />
+                </span>
+              </span>
+            </button>
+            <button className="text-white  border border-white/20">
+              <span className="flex gap-3 bg-black px-6 py-3">
+                <span className="font-medium">BUILD YOUR SCHEDULE</span>
+              </span>
+            </button>
           </div>
+          {/** */}
+          <div className="mb-10 md:mb-30">
+            <div className=" flex items-center justify-center gap-6 mb-4 md:mb-10">
+              <div className="text-[#54545B] jetbrain flex items-center gap-3">
+                <FaXTwitter size={24} />
+                <p>LIVE SIGNAL</p>
+              </div>
+              <p className="text-[#54545B]">|</p>
+              <div className="flex gap-2 text-[#54545B]">
+                <FaDiscord size={24} />
+                <p>FIELD NOTES</p>
+              </div>
+            </div>
+            <div>
+              <p className="text-[#54545B] jetbrain flex justify-center">
+                ACTION OVER MOTION.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="relative min-h-screen w-full bg-[#F8F9FA] overflow-hidden flex items-center justify-center font-sans selection:bg-[#EC3057]/20 p-6">
+        {/* SUBTLE LIGHT GRID */}
+        <div className="absolute inset-0 z-[1] opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]">
+          <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:40px_40px]"></div>
+        </div>
+
+        {/* SOFT MESH GLOW (Light Mode version) */}
+        <div className="absolute inset-0 z-[0]">
+          <div className="absolute top-[-10%] left-[-5%] h-[600px] w-[600px] rounded-full bg-[#EC3057] opacity-[0.03] blur-[120px]" />
+          <div className="absolute bottom-[-10%] right-[-5%] h-[700px] w-[700px] rounded-full bg-[#4F46E5] opacity-[0.03] blur-[140px]" />
+        </div>
+
+        {/* --- 2. THE FLOATING GLASS CARD --- */}
+        <div className="relative z-10 group w-full max-w-xl transition-all duration-700 hover:-translate-y-3">
+          {/* EXTERIOR SOFT PINK GLOW (Visible on hover) */}
+          <div className="absolute -inset-2 rounded-[2.5rem] bg-[#EC3057] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-[0.08]" />
         </div>
       </div>
     </div>
