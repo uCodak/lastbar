@@ -1,16 +1,48 @@
 import Navbar from "./components/Navbar";
 import CountDown from "./components/CountDown";
-import { SquareArrowOutUpRight, Database } from "lucide-react";
+import { SquareArrowOutUpRight, Database, Quote } from "lucide-react";
+import Test from "./components/Test";
 
 function Homepage() {
+  const cards = [
+    {
+      GridText:
+        "I was skeptical at first, but now I can't imagine working without it. . This was the first thing that made rules stick. I st ",
+      Name: "Priya Sharma",
+      Status: "Verified Buyer",
+      Date: "February 10, 2025",
+    },
+    {
+      GridText:
+        "Clean design, fast performance, and a joy to use every single day.is built for people like us. The audio files were clutch, and the .  ",
+      Name: "Lena Fischer",
+      Status: "Pro Member",
+      Date: "March 20, 2025",
+    },
+    {
+      GridText:
+        "I hit a wall in July and felt like I forgot everything. I bought this 9 days before the exam. The Rapid Recall outlines are literal lifesavers. The ",
+      Name: "Bailey",
+      Status: "Repeater",
+      Date: "February 10, 2025",
+    },
+    {
+      GridText:
+        "Failing by one point broke me. I knew the law but couldn’t recall fast enough. These forced recall under pressure. That missing point? ",
+      Name: "Lena Fischer",
+      Status: "Pro Member",
+      Date: "March 20, 2025",
+    },
+  ];
+  // Duplicate for seamless infinite loop
+  const allCards = [...cards, ...cards];
   return (
     <div>
       <Navbar />
       <CountDown />
       {/*background section*/}
-
       <div className="relative min-h-screen w-full bg-[#030303] overflow-hidden flex items-center justify-center font-sans selection:bg-[#EC3057]/30 p-6">
-        <div>
+        <div className="w-full ">
           {/* NOISE TEXTURE LAYER */}
           <div
             className="absolute inset-0 z-[1] opacity-[0.03] pointer-events-none"
@@ -53,13 +85,13 @@ function Homepage() {
           </div>
 
           {/* --- 2. THE FUTURISTIC CARD --- */}
-          <div className="flex justify-center w-full">
+          <div className="flex justify-center w-full mb-8">
             <div className="relative z-10 group w-full max-w-xl transition-all duration-500 hover:-translate-y-2">
               {/* EXTERIOR PINK GLOW (Visible on hover) */}
               <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-[#EC3057] to-transparent opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-20" />
 
               {/* MAIN CARD BODY */}
-              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0F0F12]/80 p-8 md:p-12 text-center backdrop-blur-3xl w-full">
+              <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0F0F12]/80 p-3 md:p-6 text-center backdrop-blur-3xl w-full">
                 {/* THE MOVING GEOMETRIC OBJECT (Inside Background) */}
                 <div className="absolute inset-0 z-0 opacity-20 pointer-events-none flex items-center justify-center">
                   <svg
@@ -114,8 +146,8 @@ function Homepage() {
                       size={14}
                       className="text-[#EC3057] animate-pulse"
                     />
-                    <span className="text-[10px] font-bold tracking-[0.3em] text-[#EC3057] uppercase">
-                      Digital Protocol July '26
+                    <span className="text-[10px] font-bold tracking-[0.3em] text-[#EC3057] uppercase jetbrain">
+                      EXAM PACKAGE
                     </span>
                   </div>
 
@@ -129,17 +161,20 @@ function Homepage() {
 
                   {/* DESCRIPTION (Professional Spacing) */}
                   <p className="mb-10 text-sm md:text-base leading-relaxed text-gray-400 font-medium max-w-[90%] mx-auto">
-                    Prebuilt frameworks for high-priority MEE and MBE subjects,
-                    featuring exam tips derived from a 10-year analysis of
-                    top-scoring model answers and grading rubrics.
+                    Prebuilt frameworks for the highest priority, most tested,
+                    most testable issues across all MEE and MBE subjects, with
+                    exam tips and tricks derived from analysis of top-scoring
+                    model answers and grading rubrics from the last 10 years.
                   </p>
 
                   {/* CTA BUTTON */}
                   <button className="group/btn relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-white/10 bg-white/5 px-10 py-4 text-sm font-bold text-white transition-all hover:border-[#EC3057]/50 hover:bg-[#EC3057]/10 active:scale-95">
-                    <span className="relative z-10">INITIALIZE ACCESS</span>
+                    <span className="relative z-10 jetbrain  text-[#EC3057]">
+                      Click here to access the package
+                    </span>
                     <SquareArrowOutUpRight
                       size={18}
-                      className="relative z-10 transition-transform group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1"
+                      className="relative z-10 transition-transform group-hover/btn:-translate-y-1 group-hover/btn:translate-x-1  text-[#EC3057]"
                     />
 
                     {/* BUTTON SHINE EFFECT */}
@@ -148,6 +183,159 @@ function Homepage() {
                 </div>
               </div>
             </div>
+          </div>
+          <p className="border border-white/20 mb-10"></p>
+          {/*moving cards */}
+          <div className="mb-7">
+            <div className="w-[90%] mx-auto  text-white">
+              <h1 className="text-[#71717B] mb-4 jetbrain text-center">
+                Field Reports
+              </h1>
+              <h2 className=" text-3xl md:text-6xl font-black gap-0 text-center mb-4 ">
+                THIS SYSTEM WORK <br />
+                <span className="text-[#F66F82]"> UNDER REAL CONDITIONS.</span>
+              </h2>
+            </div>
+            <div
+              style={{
+                fontFamily: "'Segoe UI', sans-serif",
+
+                minHeight: "50vh",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {/* Viewport */}
+              <div
+                style={{
+                  width: "100%",
+                  overflow: "hidden",
+                  padding: "16px 0",
+                  WebkitMaskImage:
+                    "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+                  maskImage:
+                    "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+                }}
+              >
+                {/* Track */}
+                <div
+                  style={{
+                    display: "flex",
+                    gap: "20px",
+                    width: "max-content",
+                    animation: "scroll-left 22s linear infinite",
+                  }}
+                >
+                  {allCards.map((card, i) => (
+                    <div
+                      key={i}
+                      className="w-[50%] mx-auto  group relative w-full max-w-xl mx-auto transition-all duration-500 hover:-translate-y-2 text-white"
+                    >
+                      {/* 1. The Outer Glow */}
+                      <div className="absolute -inset-1 rounded-[2.2rem] bg-gradient-to-r from-[#EC3057] to-[#4F46E5] opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
+                      {/* 2. THE NEW GRADIENT BORDER LAYER */}
+                      {/* This p-[1px] creates the thin border effect when the gradient background is revealed */}
+                      <div className="relative rounded-[2rem] p-[1px] transition-all duration-500 bg-white/10 group-hover:bg-gradient-to-br group-hover:from-[#EC3057] group-hover:to-transparent">
+                        {/* 3. The Main Card Container */}
+                        <div className="relative overflow-hidden rounded-[calc(2rem-1px)] bg-[#0F0F12] p-8 text-center backdrop-blur-3xl">
+                          {/* 4. The Moving Object */}
+                          <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
+                            <svg
+                              className="h-full w-full"
+                              viewBox="0 0 400 400"
+                            >
+                              <circle
+                                cx="200"
+                                cy="200"
+                                r="150"
+                                fill="none"
+                                stroke="#EC3057"
+                                strokeWidth="0.5"
+                                strokeDasharray="10 20"
+                              >
+                                <animateTransform
+                                  attributeName="transform"
+                                  type="rotate"
+                                  from="0 200 200"
+                                  to="360 200 200"
+                                  dur="20s"
+                                  repeatCount="indefinite"
+                                />
+                              </circle>
+                              <circle
+                                cx="200"
+                                cy="200"
+                                r="100"
+                                fill="none"
+                                stroke="#EC3057"
+                                strokeWidth="1"
+                                strokeDasharray="5 15"
+                                opacity="0.5"
+                              >
+                                <animateTransform
+                                  attributeName="transform"
+                                  type="rotate"
+                                  from="360 200 200"
+                                  to="0 200 200"
+                                  dur="15s"
+                                  repeatCount="indefinite"
+                                />
+                              </circle>
+                            </svg>
+                          </div>
+                          {/* 5. Content Layer */}
+                          <div className="relative z-10">
+                            {/* Quote Badge */}
+                            <div className="mx-auto mb-6 flex w-fit items-center gap-2 rounded-full border border-[#EC3057]/30 bg-[#EC3057]/10 px-4 py-1">
+                              <Quote
+                                size={14}
+                                className="text-[#EC3057] animate-pulse"
+                              />
+                            </div>
+                            {/* Description */}
+                            <p className="mb-8 text-sm leading-relaxed text-gray-400 font-medium">
+                              {card.GridText}
+                            </p>
+                            <p className="border border-white/20"></p>
+                            <div className="flex items-center justify-between">
+                              <div className="flex flex-col">
+                                <span>{card.Name}</span>
+                                <span className="text-[#71717B] jetbrain">
+                                  {card.Status}
+                                </span>
+                              </div>
+                              <span className="jetbrain text-[#F66F82] ">
+                                {card.Date}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <style>{`
+        @keyframes scroll-left {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+            </div>
+            <div className="mt-4 jetbrain text-[#F66F82] flex items-center justify-center gap-3 mb-5 ">
+              <p className=" ">Click here to access the package</p>
+              <SquareArrowOutUpRight />
+            </div>
+            <p className="text-center jetbrain text-[#71717B]">
+              Action Over Motion...
+            </p>
+          </div>
+          {/**buttons */}
+          <div>
+            <button></button>
+            <button></button>
           </div>
         </div>
       </div>
