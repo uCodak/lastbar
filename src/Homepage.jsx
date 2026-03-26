@@ -6,6 +6,10 @@ import {
   Database,
   Quote,
   ArrowRight,
+  ShieldAlert,
+  CircleDollarSign,
+  Briefcase,
+  Globe,
 } from "lucide-react";
 import { FaXTwitter, FaDiscord } from "react-icons/fa6";
 
@@ -42,6 +46,33 @@ function Homepage() {
   ];
   // Duplicate for seamless infinite loop
   const allCards = [...cards, ...cards];
+  const gridCards = [
+    {
+      id: 1,
+      logo: <CircleDollarSign />,
+      gridheader: 'THE "CASH COW" REPEATER',
+      gridtext:
+        'You feel the "Repeaters Block" The anxiety spikes every time you open a book. You feel treated as a second-class citizen by your old prep course. You suspect the big prep companies actually want you to fail so you pay again.',
+      status: " PROFILE STATUS : ACTIVE  ",
+    },
+    {
+      id: 2,
+      logo: <Briefcase />,
+      gridheader: "THE  FULL TIMER EMPLOYEE",
+      gridtext:
+        'You roll your eyes when a generic schedule says "Study from 9:00 AM to 5:00 PM." You have a boss. You have toddlers. You have aging parents. You are trying to fit a gallon of water into a shot glass. You need a protocol that exploits the 3 hours you have',
+      status: "PROFILE STATUS : ACTIVE  ",
+    },
+    {
+      id: 3,
+      logo: <Globe />,
+      gridheader: "THE IMTERNATIONAL CANDIDATE(LL.M)",
+      gridtext:
+        "The system treats you like a standard student. You are not. You are fighting a war on two fronts: the law and the cultural nuances of the test. You don't need more content. You need to understand how the American examiner thinks.",
+      status: "PROFILE STATUS : ACTIVE  ",
+    },
+  ];
+
   return (
     <div>
       <Navbar />
@@ -375,62 +406,117 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="relative min-h-screen w-full bg-[#F8F9FA] overflow-hidden  font-sans selection:bg-[#EC3057]/20 p-6">
+
+      <div className="relative min-h-screen w-full bg-[#F8F9FA] overflow-hidden font-sans selection:bg-[#EC3057]/20 p-6">
         {/* SUBTLE LIGHT GRID */}
-        <div className="absolute inset-0 z-[1] opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)] ">
+        <div className="absolute inset-0 z-[1] opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]">
           <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
-        {/* SOFT MESH GLOW (Light Mode version) */}
-        <div className="absolute inset-0 z-[0]  ">
+        {/* SOFT MESH GLOW */}
+        <div className="absolute inset-0 z-[0]">
           <div className="absolute top-[-10%] left-[-5%] h-[600px] w-[600px] rounded-full bg-[#EC3057] opacity-[0.03] blur-[120px]" />
           <div className="absolute bottom-[-10%] right-[-5%] h-[700px] w-[700px] rounded-full bg-[#4F46E5] opacity-[0.03] blur-[140px]" />
         </div>
-        {/**text region */}
-        <div className="  w-full md:w-[90%] mx-auto flex   gap-3 md:gap-5">
-          <div className="text-xl w-1/2">
-            <p className=" jetbrain text-[#F66F82] ">--- The Offensive</p>
-            <div className="w-full mb-4 md:mb-8">
-              <h2 className=" text-3xl md:text-6xl font-black gap-0 mb-4 ">
-                THE SYSTEM IS DESIGNED
-                <span className="text-[#881337]">FOR YOU TO FAIL..</span>
-              </h2>
-            </div>
-            <h2></h2>
-            <p className="text-[#71717B] mb-5">
-              Big Box Prep companies love repeaters. You are their{" "}
-              <span className="text-black">recurring revenue</span>. You are
-              their safety net. They sell you the same generic 8-week calendar,
-              the same 4,000 questions, and the same passive lectures.
-            </p>
-            <p className="text-[#71717B]">
-              When you fail, they blame your "effort." They offer a "free
-              retake" to keep you in their ecosystem.{" "}
-              <span className="text-black">
-                I am here to burn that ecosystem down.
-              </span>
-            </p>
-          </div>
-          <div className="w-1/2">
-            <div class="relative bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 w-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-              <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400 to-blue-400 opacity-20 blur-xl -z-10"></div>
 
-              <p class="text-gray-600 text-xl mb-4">
-                I am a Systems Architect. I do not teach you the law again. You
-                already know the law. I audit your failure. I find the friction
-                points in your day. I build a protocol that forces you to score
-                points instead of just "studying."
+        {/* text region — needs z-index to sit above bg layers */}
+        <div className="relative z-10 w-full md:w-[98%] mx-auto">
+          <div className="flex flex-col md:flex-row mb-30 md:mb-60 gap-3 md:gap-5">
+            <div className="text-xl w-full md:w-1/2">
+              <p className="jetbrain text-[#F66F82]">--- The Offensive</p>
+              <div className="w-full mb-4 md:mb-8">
+                <h2 className="text-3xl md:text-6xl font-black gap-0 mb-4">
+                  THE SYSTEM IS DESIGNED
+                  <span className="text-[#881337]">FOR YOU TO FAIL..</span>
+                </h2>
+              </div>
+              <p className="text-[#71717B] mb-5">
+                Big Box Prep companies love repeaters. You are their{" "}
+                <span className="text-black">recurring revenue</span>. You are
+                their safety net. They sell you the same generic 8-week
+                calendar, the same 4,000 questions, and the same passive
+                lectures.
               </p>
-              <div className="">
-                <p className="bg-[#FFF1F2]">
-                  <span className="text-[#881337] jetbrain">|</span> GOAL : TO
-                  MAKE THIS YOUR LAST BAR EXAM
+              <p className="text-[#71717B]">
+                When you fail, they blame your "effort." They offer a "free
+                retake" to keep you in their ecosystem.{" "}
+                <span className="text-black">
+                  I am here to burn that ecosystem down.
+                </span>
+              </p>
+            </div>
+
+            <div className="w-full md:w-1/2">
+              <div className="relative bg-white/70 backdrop-blur-lg shadow-xl p-10 w-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400 to-blue-400 opacity-20 blur-xl -z-10"></div>
+                <div className="absolute -top-4 -right-4 z-20">
+                  <ShieldAlert size={50} />
+                </div>
+                <p className="text-gray-600 text-xl mb-8">
+                  I am a Systems Architect. I do not teach you the law again.
+                  You already know the law. I audit your failure. I find the
+                  friction points in your day. I build a protocol that forces
+                  you to score points instead of just "studying."
                 </p>
+                <div>
+                  <p className="bg-[#FFF1F2] px-2 py-4 jetbrain">
+                    <span className="text-[#881337]">|</span> GOAL : TO MAKE
+                    THIS YOUR LAST BAR EXAM
+                  </p>
+                </div>
               </div>
             </div>
           </div>
+
+          <div className="text-xl text-center">
+            <p className="jetbrain mb-5 text-[#9F1239] text-lg">
+              -- Target Profiles
+            </p>
+            <h2 className="text-3xl md:text-6xl font-extrabold mb-5">
+              THE WOLF PACK
+            </h2>
+            <p className="w-full md:w-[70%] mx-auto">
+              The industry ignores the nuance of the repeater. I build
+              exclusively for the candidates the system left behind.
+            </p>
+          </div>
+
+          {/* grid section */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+            {gridCards.map((card) => (
+              <div
+                key={card.id}
+                className="group relative p-8 rounded-2xl overflow-hidden bg-white border border-black/10 shadow-sm hover:shadow-[0_20px_40px_rgba(159,18,57,0.12)] hover:-translate-y-1.5 hover:scale-[1.02] hover:border-rose-900/25 transition-all duration-300 w-full text-black"
+              >
+                {/* pink tint overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-pink-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+
+                {/* logo */}
+                <p className="relative flex items-center gap-2 px-4 py-2.5 w-fit mb-4 rounded-xl bg-zinc-200 group-hover:bg-[#9F1239] group-hover:-rotate-3 group-hover:scale-110 origin-left transition-all duration-300 group-hover:text-[#ffffff]">
+                  <span className="text-xl group-hover:brightness-[10] transition duration-300">
+                    {card.logo}
+                  </span>
+                </p>
+
+                <h2 className="relative text-xl md:text-2xl font-medium mb-2 group-hover:text-[#9F1239] transition-colors duration-300">
+                  {card.gridheader}
+                </h2>
+
+                <p className="relative text-lg mb-3 text-[#54545B]">
+                  {card.gridtext}
+                </p>
+
+                <div className="relative border-t border-black/10 group-hover:border-rose-900/20 mb-3 transition-colors duration-300" />
+
+                <p className="relative text-sm jetbrain text-[#54545B]">
+                  {card.status}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
+      <Test />
     </div>
   );
 }
