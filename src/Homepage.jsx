@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import CountDown from "./components/CountDown";
+import Test from "./components/Test";
 import {
   SquareArrowOutUpRight,
   Database,
@@ -361,7 +362,7 @@ function Homepage() {
                 <p>LIVE SIGNAL</p>
               </div>
               <p className="text-[#54545B]">|</p>
-              <div className="flex gap-2 text-[#54545B]">
+              <div className="flex gap-2 text-[#54545B] jetbrain">
                 <FaDiscord size={24} />
                 <p>FIELD NOTES</p>
               </div>
@@ -374,22 +375,60 @@ function Homepage() {
           </div>
         </div>
       </div>
-      <div className="relative min-h-screen w-full bg-[#F8F9FA] overflow-hidden flex items-center justify-center font-sans selection:bg-[#EC3057]/20 p-6">
+      <div className="relative min-h-screen w-full bg-[#F8F9FA] overflow-hidden  font-sans selection:bg-[#EC3057]/20 p-6">
         {/* SUBTLE LIGHT GRID */}
-        <div className="absolute inset-0 z-[1] opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)]">
+        <div className="absolute inset-0 z-[1] opacity-[0.4] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_90%)] ">
           <div className="absolute inset-0 h-full w-full bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         </div>
 
         {/* SOFT MESH GLOW (Light Mode version) */}
-        <div className="absolute inset-0 z-[0]">
+        <div className="absolute inset-0 z-[0]  ">
           <div className="absolute top-[-10%] left-[-5%] h-[600px] w-[600px] rounded-full bg-[#EC3057] opacity-[0.03] blur-[120px]" />
           <div className="absolute bottom-[-10%] right-[-5%] h-[700px] w-[700px] rounded-full bg-[#4F46E5] opacity-[0.03] blur-[140px]" />
         </div>
+        {/**text region */}
+        <div className="  w-full md:w-[90%] mx-auto flex   gap-3 md:gap-5">
+          <div className="text-xl w-1/2">
+            <p className=" jetbrain text-[#F66F82] ">--- The Offensive</p>
+            <div className="w-full mb-4 md:mb-8">
+              <h2 className=" text-3xl md:text-6xl font-black gap-0 mb-4 ">
+                THE SYSTEM IS DESIGNED
+                <span className="text-[#881337]">FOR YOU TO FAIL..</span>
+              </h2>
+            </div>
+            <h2></h2>
+            <p className="text-[#71717B] mb-5">
+              Big Box Prep companies love repeaters. You are their{" "}
+              <span className="text-black">recurring revenue</span>. You are
+              their safety net. They sell you the same generic 8-week calendar,
+              the same 4,000 questions, and the same passive lectures.
+            </p>
+            <p className="text-[#71717B]">
+              When you fail, they blame your "effort." They offer a "free
+              retake" to keep you in their ecosystem.{" "}
+              <span className="text-black">
+                I am here to burn that ecosystem down.
+              </span>
+            </p>
+          </div>
+          <div className="w-1/2">
+            <div class="relative bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 w-full transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+              <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-purple-400 to-blue-400 opacity-20 blur-xl -z-10"></div>
 
-        {/* --- 2. THE FLOATING GLASS CARD --- */}
-        <div className="relative z-10 group w-full max-w-xl transition-all duration-700 hover:-translate-y-3">
-          {/* EXTERIOR SOFT PINK GLOW (Visible on hover) */}
-          <div className="absolute -inset-2 rounded-[2.5rem] bg-[#EC3057] opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-[0.08]" />
+              <p class="text-gray-600 text-xl mb-4">
+                I am a Systems Architect. I do not teach you the law again. You
+                already know the law. I audit your failure. I find the friction
+                points in your day. I build a protocol that forces you to score
+                points instead of just "studying."
+              </p>
+              <div className="">
+                <p className="bg-[#FFF1F2]">
+                  <span className="text-[#881337] jetbrain">|</span> GOAL : TO
+                  MAKE THIS YOUR LAST BAR EXAM
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
