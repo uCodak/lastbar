@@ -1,150 +1,117 @@
-"use client";
-import { useEffect, useRef } from "react";
-import { Search, Pencil, Check } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { FileSearch, ShieldCheck, Zap, Globe } from "lucide-react";
 
-const steps = [
+const items = [
   {
-    tag: "STEP 01",
-    side: "left",
-    title: "Audit Your Failure",
-    text: "We dissect every failed attempt. Not to revisit pain — to find the exact friction points killing your score.",
-    status: "Diagnostic complete",
-    icon: <Search size={18} />,
+    icon: <FileSearch size={28} />,
+    title: "Document Analysis",
+    description:
+      "Scan and extract key insights from any document instantly with precision.",
   },
   {
-    tag: "STEP 02",
-    side: "right",
-    title: "Build Your Protocol",
-    text: "A custom day-by-day system built around your life, your weak subjects, and your test date.",
-    status: "Protocol assigned",
-    icon: <Pencil size={18} />,
+    icon: <ShieldCheck size={28} />,
+    title: "Secure Protocol",
+    description:
+      "End-to-end encryption ensuring your data stays protected at every layer.",
   },
   {
-    tag: "STEP 03",
-    side: "left",
-    title: "Execute & Pass",
-    text: "Weekly check-ins, live adjustments, and accountability until you walk out for the last time.",
-    status: "Mission active",
-    icon: <Check size={18} />,
+    icon: <Zap size={28} />,
+    title: "Fast Execution",
+    description:
+      "Lightning-fast processing pipeline built for real-time performance.",
+  },
+  {
+    icon: <Globe size={28} />,
+    title: "Global Reach",
+    description:
+      "Deploy anywhere in the world with multi-region support out of the box.",
   },
 ];
-
-export default function Test() {
-  const lineRef = useRef(null);
-  const iconRefs = useRef([]);
-  const cardRefs = useRef([]);
-  const dotRefs = useRef([]);
-  const timelineRef = useRef(null);
+function BlinkingLabel({ inView }) {
+  return (
+    <div className="flex items-center gap-3">
+      <span
+        className="w-1.5 h-1.5 rounded-full bg-[#FF2D55] hidden sm:block"
+        style={{ animation: inView ? "blink 2s infinite" : "none" }}
+      />
+      <p className="jetbrain text-sm text-white">PHASE_01_INITIATED</p>
+    </div>
+  );
+}
+function Row({ item, index }) {
+  const rowRef = useRef(null);
+  const [inView, setInView] = useState(false);
+  const isEven = index % 2 === 0;
 
   useEffect(() => {
-    function onScroll() {
-      const rect = timelineRef.current.getBoundingClientRect();
-      const winH = window.innerHeight;
-      const raw =
-        (winH * 0.6 - rect.top) / (winH * 0.6 + rect.height - winH * 0.4);
-      const progress = Math.min(1, Math.max(0, raw));
-      lineRef.current.style.height = progress * 100 + "%";
-
-      steps.forEach((_, i) => {
-        const active = progress >= i / (steps.length - 0.6);
-        iconRefs.current[i]?.classList.toggle("lit", active);
-        cardRefs.current[i]?.classList.toggle("lit", active);
-        dotRefs.current[i]?.classList.toggle("lit", active);
-      });
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 },
+    );
+    if (rowRef.current) observer.observe(rowRef.current);
+    return () => observer.disconnect();
   }, []);
 
-  return (
-    <section className="bg-[#0a0a0a] py-20 px-6">
-      <p className="text-center text-xs tracking-[0.2em] text-[#555] font-mono mb-3">
-        -- THE PROTOCOL
+  const cardClass = `
+    border border-white/20 rounded-xl p-8 flex items-center gap-6 bg-white/5 relative group
+    shadow-sm hover:shadow-[0_20px_40px_rgba(159,18,57,0.12)]
+    hover:border-rose-900/25 transition-all duration-500
+    ${inView ? "-translate-y-1.5 scale-[1.02] shadow-[0_20px_40px_rgba(159,18,57,0.12)]" : "translate-y-0 scale-100"}
+  `;
+
+  const card = (
+    <div className={cardClass}>
+      <p
+        className={`
+          absolute top-10 text-[#9F1239] flex items-center gap-2 px-4 py-2.5 z-50 w-fit mb-4 rounded-xl
+          bg-zinc-200 origin-left transition-all duration-300
+          ${isEven ? "-right-10" : "-left-10"}
+          ${
+            inView
+              ? "bg-[#9F1239] -rotate-3 scale-110 text-[#ffffff]"
+              : "bg-zinc-200 rotate-0 scale-100 text-[#9F1239]"
+          }
+        `}
+      >
+        <span
+          className={`text-xl transition duration-300 ${inView ? "brightness-[10]" : "brightness-100"}`}
+        >
+          {item.icon}
+        </span>
       </p>
-      <h2 className="text-center text-4xl md:text-5xl font-extrabold text-white mb-20">
-        HOW IT WORKS
-      </h2>
-
-      <div ref={timelineRef} className="relative max-w-4xl mx-auto">
-        {/* track */}
-        <div className="absolute left-1/2 top-0 bottom-0 w-[2px] bg-[#1e1e1e] -translate-x-1/2" />
-        {/* fill */}
-        <div
-          ref={lineRef}
-          className="absolute left-1/2 top-0 w-[2px] h-0 bg-gradient-to-b from-[#9F1239] to-pink-500 -translate-x-1/2 z-10 transition-[height] duration-100"
-        />
-
-        {steps.map((s, i) => (
-          <div
-            key={i}
-            className="relative flex items-center justify-center mb-20 last:mb-0 min-h-[120px]"
-          >
-            {/* left slot */}
-            <div className="w-[45%] flex justify-end pr-12">
-              {s.side === "left" && (
-                <div
-                  ref={(el) => (cardRefs.current[i] = el)}
-                  className="card-box max-w-xs w-full bg-[#111] border border-[#1e1e1e] rounded-2xl p-6 opacity-0 translate-y-6 transition-all duration-500 [&.lit]:opacity-100 [&.lit]:translate-y-0 [&.lit]:border-[#9F1239]"
-                >
-                  <p className="text-[11px] font-mono tracking-widest text-[#9F1239] mb-2">
-                    {s.tag}
-                  </p>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-[#666] leading-relaxed">
-                    {s.text}
-                  </p>
-                  <hr className="border-[#1e1e1e] my-3 [.lit_&]:border-[#2a0010]" />
-                  <p className="text-[11px] font-mono text-[#444] flex items-center gap-2 [.lit_&]:text-[#9F1239]">
-                    <span className="hidden w-1.5 h-1.5 rounded-full bg-[#9F1239] [.lit_&]:inline-block animate-ping" />
-                    {s.status}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* center icon */}
-            <div className="absolute left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5">
-              <div
-                ref={(el) => (iconRefs.current[i] = el)}
-                className="w-12 h-12 rounded-full border-2 border-[#2a2a2a] bg-[#111] flex items-center justify-content text-[#555] transition-all duration-500 [&.lit]:border-[#9F1239] [&.lit]:bg-[#1a0008] [&.lit]:scale-110 [&.lit]:shadow-[0_0_20px_4px_rgba(159,18,57,0.4)] [&.lit]:text-pink-400"
-              >
-                {s.icon}
-              </div>
-              <div
-                ref={(el) => (dotRefs.current[i] = el)}
-                className="w-2 h-2 rounded-full bg-[#222] transition-colors duration-300 [&.lit]:bg-pink-500"
-              />
-            </div>
-
-            {/* right slot */}
-            <div className="w-[45%] flex justify-start pl-12">
-              {s.side === "right" && (
-                <div
-                  ref={(el) => (cardRefs.current[i] = el)}
-                  className="card-box max-w-xs w-full bg-[#111] border border-[#1e1e1e] rounded-2xl p-6 opacity-0 translate-y-6 transition-all duration-500 [&.lit]:opacity-100 [&.lit]:translate-y-0 [&.lit]:border-[#9F1239]"
-                >
-                  <p className="text-[11px] font-mono tracking-widest text-[#9F1239] mb-2">
-                    {s.tag}
-                  </p>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    {s.title}
-                  </h3>
-                  <p className="text-sm text-[#666] leading-relaxed">
-                    {s.text}
-                  </p>
-                  <hr className="border-[#1e1e1e] my-3" />
-                  <p className="text-[11px] font-mono text-[#444] flex items-center gap-2">
-                    <span className="hidden w-1.5 h-1.5 rounded-full bg-[#9F1239] animate-ping" />
-                    {s.status}
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-        ))}
+      <div>
+        <h2 className="text-white font-semibold text-lg mb-1">{item.title}</h2>
+        <p className="text-white/50 text-sm leading-relaxed">
+          {item.description}
+        </p>
       </div>
-    </section>
+      <BlinkingLabel inView={inView} />
+    </div>
+  );
+
+  return (
+    <div ref={rowRef} className="grid grid-cols-2 mb-8">
+      {isEven ? (
+        <>
+          {card}
+          <div />
+        </>
+      ) : (
+        <>
+          <div />
+          {card}
+        </>
+      )}
+    </div>
+  );
+}
+
+export default function Test() {
+  return (
+    <div className="bg-black py-16 px-6">
+      {items.map((item, index) => (
+        <Row key={index} item={item} index={index} />
+      ))}
+    </div>
   );
 }

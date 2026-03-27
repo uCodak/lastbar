@@ -71,6 +71,7 @@ function CountDown() {
   } = data;
   return (
     <div className="mt-15">
+      y
       <div
         className="flex flex-col gap-3.5 py-2 px-4 max-w-lg mx-auto"
         style={{ fontFamily: "'DM Mono', monospace" }}

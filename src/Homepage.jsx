@@ -10,6 +10,7 @@ import {
   CircleDollarSign,
   Briefcase,
   Globe,
+  FileSearch,
 } from "lucide-react";
 import { FaXTwitter, FaDiscord } from "react-icons/fa6";
 
@@ -420,7 +421,7 @@ function Homepage() {
         </div>
 
         {/* text region — needs z-index to sit above bg layers */}
-        <div className="relative z-10 w-full md:w-[98%] mx-auto">
+        <div className="relative z-10 w-full md:w-[95%] mx-auto">
           <div className="flex flex-col md:flex-row mb-30 md:mb-60 gap-3 md:gap-5">
             <div className="text-xl w-full md:w-1/2">
               <p className="jetbrain text-[#F66F82]">--- The Offensive</p>
@@ -482,41 +483,67 @@ function Homepage() {
           </div>
 
           {/* grid section */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
-            {gridCards.map((card) => (
-              <div
-                key={card.id}
-                className="group relative p-8 rounded-2xl overflow-hidden bg-white border border-black/10 shadow-sm hover:shadow-[0_20px_40px_rgba(159,18,57,0.12)] hover:-translate-y-1.5 hover:scale-[1.02] hover:border-rose-900/25 transition-all duration-300 w-full text-black"
-              >
-                {/* pink tint overlay */}
-                <div className="absolute inset-0 bg-gradient-to-br from-pink-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+          <div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6 mb-20">
+              {gridCards.map((card) => (
+                <div
+                  key={card.id}
+                  className="group relative p-8 rounded-2xl overflow-hidden bg-white border border-black/10 shadow-sm hover:shadow-[0_20px_40px_rgba(159,18,57,0.12)] hover:-translate-y-1.5 hover:scale-[1.02] hover:border-rose-900/25 transition-all duration-300 w-full text-black"
+                >
+                  {/* pink tint overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
 
-                {/* logo */}
-                <p className="relative flex items-center gap-2 px-4 py-2.5 w-fit mb-4 rounded-xl bg-zinc-200 group-hover:bg-[#9F1239] group-hover:-rotate-3 group-hover:scale-110 origin-left transition-all duration-300 group-hover:text-[#ffffff]">
-                  <span className="text-xl group-hover:brightness-[10] transition duration-300">
-                    {card.logo}
-                  </span>
-                </p>
+                  {/* logo */}
+                  <p className="relative  text-[#9F1239] flex items-center gap-2 px-4 py-2.5 w-fit mb-4 rounded-xl bg-zinc-200 group-hover:bg-[#9F1239] group-hover:-rotate-3 group-hover:scale-110 origin-left transition-all duration-300 group-hover:text-[#ffffff]">
+                    <span className="text-xl group-hover:brightness-[10] transition duration-300">
+                      {card.logo}
+                    </span>
+                  </p>
 
-                <h2 className="relative text-xl md:text-2xl font-medium mb-2 group-hover:text-[#9F1239] transition-colors duration-300">
-                  {card.gridheader}
-                </h2>
+                  <h2 className="relative text-xl md:text-2xl font-medium mb-2 group-hover:text-[#9F1239] transition-colors duration-300">
+                    {card.gridheader}
+                  </h2>
 
-                <p className="relative text-lg mb-3 text-[#54545B]">
-                  {card.gridtext}
-                </p>
+                  <p className="relative text-lg mb-3 text-[#54545B]">
+                    {card.gridtext}
+                  </p>
 
-                <div className="relative border-t border-black/10 group-hover:border-rose-900/20 mb-3 transition-colors duration-300" />
+                  <div className="relative border-t border-black/10 group-hover:border-rose-900/20 mb-3 transition-colors duration-300" />
 
-                <p className="relative text-sm jetbrain text-[#54545B]">
-                  {card.status}
-                </p>
-              </div>
-            ))}
+                  <p className="relative text-sm jetbrain text-[#54545B]">
+                    {card.status}
+                  </p>
+                </div>
+              ))}
+            </div>
+            <p className="text-[18px] text-center text-[#54545B] mb-25">
+              "The Bottom Line: If you found yourself nodding at any of these
+              descriptions, you are in the right place. I built this system for
+              you."
+            </p>
+            <p className="border border-black/20 mb-3"></p>
+          </div>
+          {/**motion section */}
+          <div></div>
+          {/**forensic section */}
+          <div>
+            <div className="mb-5">
+              <p className="jetbrain text-sm text-[#881337] text-center mb-4 md:mb-8">
+                ---- THE ARCHITECTURE
+              </p>
+              <h2 className="text-4xl md:text-6xl font-extrabold text-center mb-4 md:mb-8 ">
+                FORENSIC RECOVERY
+              </h2>
+              <p className="text-xl text-center">
+                I do not sell a course. I orchestrate a forensic audit of your
+                failure across three phases.
+              </p>
+            </div>
+            {/**scroll */}
+            <Test />
           </div>
         </div>
       </div>
-      <Test />
     </div>
   );
 }
